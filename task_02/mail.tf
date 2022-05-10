@@ -48,6 +48,7 @@ resource "yandex_compute_instance" "ci-tf-homework" {
   }
 
   metadata = {
+    user-data = file("${path.module}/cloudconfig.yaml")
     ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
   }
 }
